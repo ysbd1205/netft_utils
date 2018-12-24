@@ -14,15 +14,14 @@
 
   <!-- run the robot interface driver so that we can see robot transforms -->
   <include file="$(find agile_planet_driver)/launch/robot_interface.launch">
-    <arg name="robot_ip" value="192.168.1.101" />
+    <arg name="robot_ip" value="192.168.1.1" />
   </include>
   
   <!-- publish the robot state (tf transforms) -->
   <param name="publish_frequency" value="50.0" type="double" />
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
-  <node name="netft_node" pkg="netft_rdt_driver" type="netft_node" respawn="false" output="screen" args="192.168.1.84"/>
+  <node name="netft_node" pkg="netft_rdt_driver" type="netft_node" respawn="false" output="screen" args="192.168.1.1"/>
 
-  <node name="netft_force_utils" pkg="netft_utils" type="netft_utils" respawn="false" output="screen" />
 
 </launch>
